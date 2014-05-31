@@ -6,8 +6,8 @@
 	var url = "https://qa-1.chaucercloud.com/";
 	var x = require('casper').selectXPath;
 	var fileName='gettysburg.pdf';
-	var username = 'admin';
-	var password = 'books';
+	var username = '';
+	var password = '';
 	var projectTitle = 'gettysburg'; 
 	var bookPublisher = 'PDF Test'; 
 	var bookAuthor = 'Shawn Shaligram'; 

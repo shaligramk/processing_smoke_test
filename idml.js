@@ -4,10 +4,10 @@ Objective: The purpose of this script is to perform a smoke test Reflowable PDF'
 Last Updated: May 26, 2014
 */
 
-var url = "https://qa-pearson.chaucercloud.com/";
+var url = "https://qa-1.chaucercloud.com/";
 var fileName='time.idml';
-var username = 'shawn';
-var password = 'nayana';
+var username = '';
+var password = '';
 var projectTitle = 'Inside the Red Border - Shawn'; 
 var bookPublisher = 'IDML Test'; 
 var bookAuthor = 'Shawn Shaligram'; 
