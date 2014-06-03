@@ -31,7 +31,6 @@
 
 			// Add Project Information
 			this.then(function() {
-				this.capture("screenshots/login_successfull.png", { top: 0, left:0,  width:1000, height:500});
 				this.then(function() {
 					this.evaluate(function() {
 						document.getElementsByClassName('btn newProject')[0].click();
