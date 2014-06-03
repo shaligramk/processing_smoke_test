@@ -1,9 +1,9 @@
 	/*
 	Objective: To perform a smoke test for Processor by processing a Reflowable PDF 
-	Last Updated: May 30, 2014
+	Last Updated: June 3, 2014
 	*/
 
-	var url = "https://qa-1.chaucercloud.com/";
+	var url = "https://stage-pearson.chaucercloud.com/";
 	var x = require('casper').selectXPath;
 	var fileName='gettysburg.pdf';
 	var username = '';
@@ -31,6 +31,7 @@
 
 			// Add Project Information
 			this.then(function() {
+				this.capture("screenshots/login_successfull.png", { top: 0, left:0,  width:1000, height:500});
 				this.then(function() {
 					this.evaluate(function() {
 						document.getElementsByClassName('btn newProject')[0].click();
@@ -158,7 +159,7 @@
 				test.assertExists('iframe[id="page-frame"]', "Book Editor iFrame found");
 				this.capture('screenshots/book_editor.png', { top: 0, left:0,  width:1500, height:1500});
 			});	
-			});	
+		});	
 
 
 }).run(function() {
