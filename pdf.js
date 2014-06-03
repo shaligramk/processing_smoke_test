@@ -8,14 +8,15 @@
 	var fileName='gettysburg.pdf';
 	var username = '';
 	var password = '';
-	var projectTitle = 'gettysburg'; 
+	var currDt = new Date();
+	var projectTitle = 'gettysburg' + currDt.getTime(); 
 	var bookPublisher = 'PDF Test'; 
 	var bookAuthor = 'Shawn Shaligram'; 
 	var coverImage = 'cover_pdf.png';
 
 
 	//Begin CasperJs Test Suite
-	casper.test.begin("Welcome to Chaucer", 6, function suite(test) {
+	casper.test.begin("Welcome to Chaucer", 7, function suite(test) {
 		casper.start(url, function(){
 			test.assertHttpStatus(200, "Login Screen has loaded");
 			test.assertExists('form[action="/component/users/"]', "Login Form has been found");
@@ -39,12 +40,12 @@
 			});
 
 			// Choose Target Book Type
-			casper.waitForSelector("form#publication_form input[name='bookType[]']",
+			casper.waitForSelector("form#publication_form input[id='bookTypeSelection8']",
 				function success() {
-					this.click("form#publication_form input[name='bookType[]']");
+					this.click("form#publication_form input[id='bookTypeSelection8']");
 				},
 				function fail() {
-					test.assertExists("form#publication_form input[name='bookType[]']");
+					test.assertExists("form#publication_form input[id='bookTypeSelection8']");
 				});
 
 			casper.waitForSelector("#bookLayoutType8",
@@ -127,34 +128,39 @@
 					test.assertExists("form[name=adminForm] input[name='searchProjects']");
 				});
 
-			// Wait for 20 seconds to verify processing
+			// Wait for 30 seconds to make sure the DOM nodes and their computed styles have been set
 			casper.then(function() {
-				this.wait(20000);
+				this.wait(30000);
 			});
 
-			// Logic to look for DOM Nodes + their computed style 
+			// Look for DOM Nodes + their computed style 
 			casper.waitForSelector("#bookListTable",
 				function success() {
 					var result = this.evaluate(function (projectTitle) {
+						__utils__.echo("projectTitle = " + projectTitle);
 						var title = document.querySelector("#bookListTable > tbody > tr > td .title-publisher > a");
-						var textIsGettysburg = document.querySelector("#bookListTable > tbody > tr > td .title-publisher > a").text.trim() === "gettysburg";
+						var textIsGettysburg = document.querySelector("#bookListTable > tbody > tr > td .title-publisher > a").text.trim() === projectTitle;
 						var controlsHidden = getComputedStyle(document.querySelector("#bookListTable > tbody > tr > td > .controls-container")).display === 'none';
 						return textIsGettysburg && !controlsHidden;
-					});
-
-					if(result) {
-						this.capture('screenshots/SearchProject_Success.png', { top: 0, left:0,  width:1500, height:1500});
-
-					} else {
-						this.capture('screenshots/SearchProject_Failure.png', { top: 0, left:0,  width:1500, height:1500});
-					}
+					}, projectTitle);
 					test.assert(result);  
+				});	
+			});	
 
-				}, function fail() {
-					this.capture('screenshots/SearchProject_Failure.png', { top: 0, left:0,  width:1500, height:1500});
+			// Enter the book editor by clicking on the 'Edit Book'
+			this.then(function() {
+				this.evaluate(function() {
+					document.querySelector('.edit-book').click();
+			});
 
-				});
-		});
+			// Wait for the book to load
+			casper.then(function() {
+				this.wait(10000);
+				test.assertExists('iframe[id="page-frame"]', "Book Editor iFrame found");
+				this.capture('screenshots/book_editor.png', { top: 0, left:0,  width:1500, height:1500});
+			});	
+			});	
+
 
 }).run(function() {
 	test.done();
