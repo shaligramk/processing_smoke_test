@@ -13,10 +13,10 @@
 	var bookPublisher = 'PDF Test'; 
 	var bookAuthor = 'Shawn Shaligram'; 
 	var coverImage = 'cover_pdf.png';
-
+	var consoleOutput = require('utils');
 
 	//Begin CasperJs Test Suite
-	casper.test.begin("Welcome to Chaucer", 7, function suite(test) {
+	casper.test.begin("Welcome to Chaucer", 9, function suite(test) {
 		casper.start(url, function(){
 			test.assertHttpStatus(200, "Login Screen has loaded");
 			test.assertExists('form[action="/component/users/"]', "Login Form has been found");
@@ -31,7 +31,6 @@
 
 			// Add Project Information
 			this.then(function() {
-				this.capture("screenshots/login_successfull.png", { top: 0, left:0,  width:1000, height:500});
 				this.then(function() {
 					this.evaluate(function() {
 						document.getElementsByClassName('btn newProject')[0].click();
@@ -130,7 +129,7 @@
 
 			// Wait for 30 seconds to make sure the DOM nodes and their computed styles have been set
 			casper.then(function() {
-				this.wait(30000);
+				this.wait(20000);
 			});
 
 			// Look for DOM Nodes + their computed style 
@@ -153,16 +152,49 @@
 					document.querySelector('.edit-book').click();
 			});
 
+			//Wait for the Book Editor to load	
+			casper.then(function() {
+				this.wait(15000);
+			});	
+
 			// Wait for the book to load
 			casper.then(function() {
-				this.wait(10000);
-				test.assertExists('iframe[id="page-frame"]', "Book Editor iFrame found");
-				this.capture('screenshots/book_editor.png', { top: 0, left:0,  width:1500, height:1500});
-			});	
-		});	
+					test.assertExists('iframe[id="page-frame"]', "Book Editor iFrame found");
+					this.capture('screenshots/book_editor.png', { top: 0, left:0,  width:1500, height:1500});
+				});	
+			});
+			//Return to Project Tracker
+			casper.waitForSelector(x("//a[normalize-space(text())='Chaucer']"),
+				function success() {
+					this.click(x("//a[normalize-space(text())='Chaucer']"));
+					this.wait(5000);
+				},
+				function fail() {
+					test.assertExists(x("//a[normalize-space(text())='Chaucer']"));
+				});	
 
+			// On Project Tracker to click on Export
+			casper.waitForSelector("form[name=adminForm] input[name='searchProjects']",
+				function success() {
+					test.assertTitle("Chaucer", "Back to Project Tracker Page");
+					this.capture('screenshots/book_editor_to_project_tracker.png', { top: 0, left:0,  width:1500, height:1500});
+				},
+				function fail() {
+					test.assertExists("form[name=adminForm] input[name='searchProjects']");
+			});
 
-}).run(function() {
-	test.done();
-});
-});
+			// Click on Export
+			casper.waitForSelector(x("//a[normalize-space(text())='Export']"),
+       			function success() {
+           			test.assertExists(x("//a[normalize-space(text())='Export']"));
+           			this.click(x("//a[normalize-space(text())='Export']"));
+           			this.wait(5000);
+           			this.capture('screenshots/export_modal.png', { top: 0, left:0,  width:1500, height:1500});
+       			},
+       			function fail() {
+           			test.assertExists(x("//a[normalize-space(text())='Export']"));
+   });
+		}).run(function() {
+			test.done();
+		});
+	});
