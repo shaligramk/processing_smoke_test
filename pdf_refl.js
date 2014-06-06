@@ -1,6 +1,6 @@
 	/*
 	Objective: To perform a smoke test for Processor by processing a Reflowable PDF 
-	Last Updated: June 3, 2014
+	Last Updated: June 6, 2014
 	*/
 
 	var url = "https://stage-pearson.chaucercloud.com/";

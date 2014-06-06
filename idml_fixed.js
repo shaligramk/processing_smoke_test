@@ -1,7 +1,7 @@
 /*
 Author: Shawn Shaligram
 Objective: The purpose of this script is to perform a smoke test Reflowable PDF's
-Last Updated: June 3, 2014
+Last Updated: June 6, 2014
 */
 
 var url = "https://stage-pearson.chaucercloud.com/";
