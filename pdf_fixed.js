@@ -1,6 +1,6 @@
 	/*
 	Objective: To perform a smoke test for Processor by processing a Fixed PDF 
-	Last Updated: June 6, 2014
+	Last Updated: June 12, 2014
 	*/
 
 	var url = "https://stage-pearson.chaucercloud.com/";
@@ -149,50 +149,36 @@
 			});	
 		});
 
-		//Return to Project Tracker
-		casper.waitForSelector(x("//a[normalize-space(text())='Chaucer']"),
-			function success() {
-				this.click(x("//a[normalize-space(text())='Chaucer']"));
-				this.wait(5000);
-			},
-			function fail() {
-				test.assertExists(x("//a[normalize-space(text())='Chaucer']"));
-			});	
+		// //Return to Project Tracker
+		// casper.waitForSelector(x("//a[normalize-space(text())='Chaucer']"),
+		// 	function success() {
+		// 		this.click(x("//a[normalize-space(text())='Chaucer']"));
+		// 		this.wait(5000);
+		// 	},
+		// 	function fail() {
+		// 		test.assertExists(x("//a[normalize-space(text())='Chaucer']"));
+		// 	});	
 
-		// On Project Tracker to click on Export
-		casper.waitForSelector("form[name=adminForm] input[name='searchProjects']",
-			function success() {
-				test.assertTitle("Chaucer", "Book Editor Back to the Project Tracker");
-				this.capture('screenshots/book_editor_to_project_tracker.png', { top: 0, left:0,  width:1500, height:1500});
-			},
-			function fail() {
-			});
+		// // On Project Tracker to click on Export
+		// casper.waitForSelector("form[name=adminForm] input[name='searchProjects']",
+		// 	function success() {
+		// 		test.assertTitle("Chaucer", "Book Editor Back to the Project Tracker");
+		// 		this.capture('screenshots/book_editor_to_project_tracker.png', { top: 0, left:0,  width:1500, height:1500});
+		// 	},
+		// 	function fail() {
+		// 	});
 
-		//Click on the Export Modal
-		casper.waitForSelector(x("//a[normalize-space(text())='Export']"),
-			function success() {
-				test.assertExists(x("//a[normalize-space(text())='Export']"));
-				this.click(x("//a[normalize-space(text())='Export']"));
-			},
-			function fail() {
-				test.assertExists(x("//a[normalize-space(text())='Export']"));
-			});
+		// //Click on the Export Modal
+		// casper.waitForSelector(x("//a[normalize-space(text())='Export']"),
+		// 	function success() {
+		// 		test.assertExists(x("//a[normalize-space(text())='Export']"));
+		// 		this.click(x("//a[normalize-space(text())='Export']"));
+		// 	},
+		// 	function fail() {
+		// 		test.assertExists(x("//a[normalize-space(text())='Export']"));
+		// 	});
 
 		// Run Child Process which in turn runs ePub Check 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	}).run(function() {
 		test.done();
