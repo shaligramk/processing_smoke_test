@@ -21,11 +21,11 @@ http://docs.casperjs.org/en/latest/installation.html
 
 5. Variables:
 
-	Change URL for each build
-	Enter Credentials
-	Verify paths for fileName and coverImage are congruent. 
-	In the Terminal:
-
-Navigate to the root directory.
-Type
-casperjs test <filename> --verbose  --xunit=log.xml
+	a. Change URL for each build
+	b. Enter Credentials
+	c. Verify paths for fileName and coverImage are congruent. 
+	
+6. In the Terminal:
+	Navigate to the root directory.
+	Type
+		`casperjs test <filename> --verbose  --xunit=log.xml`
