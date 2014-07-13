@@ -1,7 +1,31 @@
-smoke_test
+CasperJs Smoke Test
 ==========
 
 The purpose of the smoke test here are twofold: one is to determine whether the application is ready for more in depth testing and secondly, to verify whether processing should not have been affected by the changes to the new build. If the smoke test fails, there is no point in running other functional tests.
 
+Getting Started
+====================
 
-PhantomJS is a 'headless' browser which means it is a normal browser stack that has been converted to run from the command line and to be scriptable through a JavaScript API.It runs without displaying any UI to the screen. It loads and navigates webpages in memory and logs the results. Since it is a full WebKit browser it supports modern features such as HTML5, SVG, Ajax, CSS selectors and so on. These qualities make it ideal for running automated tests.Casper is a testing framework built on top of Phantom. It provides a range of test-specific functionality that make writing tests easy and quick. These test-specific features include (start, waifFor, then,etc.) and also test concepts such as (assert, assertVisible,assertEquals,etc.) 
+# Instructions to install Casper and Phantom can be found here:
+
+http://docs.casperjs.org/en/latest/installation.html
+
+# Clone from here:
+	https://github.com/shaligramk/smoke_test
+
+# Setup file structure locally:
+	In your root directory, add the sample PDF and IDML files and cover images in addition to the smoke tests.
+
+# Download ePub Check .jar file to the root directory:
+	https://github.com/IDPF/epubcheck/releases  – version ePubcheck 3.0.1
+
+# Variables:
+
+	Change URL for each build
+	Enter Credentials
+	Verify paths for fileName and coverImage are congruent. 
+	In the Terminal:
+
+Navigate to the root directory.
+Type
+casperjs test <filename> --verbose  --xunit=log.xml
