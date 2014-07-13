@@ -6,21 +6,17 @@ The purpose of the smoke test here are twofold: one is to determine whether the 
 Getting Started
 ====================
 
-1. Instructions to install Casper and Phantom can be found here:
+1. Instructions to install CasperJS and PhantomJS can be found [here](http://docs.casperjs.org/en/latest/installation.html)
 
-http://docs.casperjs.org/en/latest/installation.html
-
-2. Clone from here:
-	https://github.com/shaligramk/smoke_test
+2. Clone project by running
+	`clone https://github.com/shaligramk/smoke_test.git`
 
 3. Setup file structure locally:
 	In your root directory, add the sample PDF and IDML files and cover images in addition to the smoke tests.
 
-4. Download ePub Check .jar file to the root directory:
-	https://github.com/IDPF/epubcheck/releases  – version ePubcheck 3.0.1
+4. Download the latest version of the ePub Check .jar file to the root directory from [here] (https://github.com/IDPF/epubcheck/releases)
 
 5. Variables:
-
 	a. Change URL for each build
 	b. Enter Credentials
 	c. Verify paths for fileName and coverImage are congruent. 
@@ -32,4 +28,4 @@ http://docs.casperjs.org/en/latest/installation.html
 
 License
 ====================
-MD Smoke Test is released under the [MIT License](http://opensource.org/licenses/MIT)
+MD Smoke Test is released under the [MIT License](http://opensource.org/licenses/MIT).
