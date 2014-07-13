@@ -29,3 +29,7 @@ http://docs.casperjs.org/en/latest/installation.html
 	Navigate to the root directory.
 	Type
 		`casperjs test <filename> --verbose  --xunit=log.xml`
+
+License
+====================
+MD Smoke Test is released under the [MIT License][http://opensource.org/licenses/MIT] 
