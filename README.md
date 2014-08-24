@@ -1,7 +1,7 @@
 CasperJs Smoke Test
 ==========
 
-The purpose of the smoke test here are twofold: one is to determine whether the application is ready for more in depth testing and secondly, to verify whether processing should not have been affected by the changes to the new build. If the smoke test fails, there is no point in running other functional tests.
+The purpose of the smoke test here is twofold: one is to determine whether the application is ready for more in-depth testing and secondly, to verify whether processing should not have been affected by the changes to the new build. 
 
 Getting Started
 ====================
@@ -28,4 +28,4 @@ Getting Started
 
 License
 ====================
-MD Smoke Test is released under the [MIT License](http://opensource.org/licenses/MIT).
+Processing-Smoke Test is released under the [MIT License](http://opensource.org/licenses/MIT).
