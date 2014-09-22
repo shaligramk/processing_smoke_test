@@ -1,15 +1,17 @@
 	/*
-	Objective: To perform a smoke test for Processor by processing a Reflowable PDF 
-	Last Updated: June 6, 2014
+	Objective: To perform a smoke test for the Processor code by uploading and importing a Reflowable PDF.
+	Sample Data File: Pages from Gettysburg
+	Layout: PDF into Reflowable Layout 
+	Last Updated: September 21, 2014
 	*/
 
-	var url = "https://stage-pearson.chaucercloud.com/";
+	var url = "https://enterprise.chaucercloud.com/";
 	var x = require('casper').selectXPath;
 	var fileName='gettysburg.pdf';
 	var username = '';
 	var password = '';
 	var currDt = new Date();
-	var projectTitle = 'gettysburg' + currDt.getTime(); 
+	var projectTitle = 'QA Chrome Pages From Gettysburg Fixed Layout PDF' + currDt.getTime(); 
 	var bookPublisher = 'PDF Test'; 
 	var bookAuthor = 'Shawn Shaligram'; 
 	var coverImage = 'cover_pdf.png';

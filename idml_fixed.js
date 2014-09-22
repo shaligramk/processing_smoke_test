@@ -1,10 +1,9 @@
 /*
 Author: Shawn Shaligram
 Objective: The purpose of this script is to perform a smoke test Reflowable PDF's
-Last Updated: June 6, 2014
+Last Updated: September 21, 2014
 */
-
-var url = "https://stage-pearson.chaucercloud.com/";
+var url = "https://enterprise.chaucercloud.com/";
 var x = require('casper').selectXPath;
 var fileName='time.idml';
 var username = '';
